@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -115.8,
+      "left": 137.4,
+      "rotate": 90,
+      "attrs": { "color": "yellow", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -115.8,
+      "left": 79.8,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": -115.8,
+      "left": 195,
+      "rotate": 90,
+      "attrs": { "color": "red", "xray": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": -115.8,
+      "left": 252.6,
+      "rotate": 90,
+      "attrs": { "color": "blue", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "btn2:2.r", "uno:GND.1", "black", [ "v0" ] ],
+    [ "btn1:2.r", "uno:GND.1", "black", [ "v38.6", "h-48.2" ] ],
+    [ "btn3:2.r", "uno:GND.1", "black", [ "v29", "h-105.8" ] ],
+    [ "btn4:2.r", "uno:GND.1", "black", [ "v19.4", "h-163.4" ] ],
+    [ "btn2:1.r", "uno:12", "green", [ "v48.2", "h9.6" ] ],
+    [ "btn1:1.r", "uno:9", "gold", [ "v48.2", "h-19.2" ] ],
+    [ "btn3:1.r", "uno:4", "red", [ "v38.6", "h-28.8" ] ],
+    [ "btn4:1.r", "uno:2", "blue", [ "v48.2", "h-67.2" ] ]
+  ],
+  "dependencies": {}
+}
