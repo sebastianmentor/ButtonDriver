@@ -1,26 +1,73 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include "driver/button_driver.h"
-#include "driver/millis.h"
+#include "drive/blink.h"
 
 int main(void) {
-    DDRB |= (1 << DDB5);  // LED på pin 13 (PORTB5) 00000001 << 5 --> b00100000
-    millis_init();
+    int8_t PIN_NUMBER = 0;
+    int8_t PORT;
+    int8_t BIT;
 
-    Button btn = button_create(2); // Använd pin 2
-    button_init(&btn);
+    if (PIN_NUMBER == 0){
+        DDRD |= (1 <<DDD0);
+        PORT = PORTD;
+        BIT = PD0;
+    }
+    else if (PIN_NUMBER == 1)
+    {        
+        DDRD |= (1 <<DDD1);
+    }
+    else if (PIN_NUMBER == 2)
+    {        
+        DDRD |= (1 <<DDD2);
+    }
+    else if (PIN_NUMBER == 3)
+    {        
+        DDRD |= (1 <<DDD3);
+    }
+    else if (PIN_NUMBER == 4)
+    {        
+        DDRD |= (1 <<DDD4);
+    }
+    else if (PIN_NUMBER == 5)
+    {        
+        DDRD |= (1 <<DDD5);
+    }
+    else if (PIN_NUMBER == 6)
+    {        
+        DDRD |= (1 <<DDD6);
+    }
+    else if (PIN_NUMBER == 7)
+    {        
+        DDRD |= (1 <<DDD7);
+    }
+    else if (PIN_NUMBER == 8)
+    {        
+        DDRB |= (1 <<DDB0);
+    }
+    else if (PIN_NUMBER == 9)
+    {        
+        DDRB |= (1 <<DDB1);
+    }
+    else if (PIN_NUMBER == 10)
+    {        
+        DDRB |= (1 <<DDB2);
+    }
+    else if (PIN_NUMBER == 11)
+    {        
+        DDRB |= (1 <<DDB3);
+    }
+    else if (PIN_NUMBER == 12)
+    {        
+        DDRB |= (1 <<DDB4);
+    }
+    else if (PIN_NUMBER == 13)
+    {        
+        DDRB |= (1 <<DDB5);
+    }
 
-    uint8_t last = 0;
-
+    // blink_init(10, 20); // Pinne 10 ska bli aktiverad som output,
+    // blink_start();
     while (1) {
-        uint8_t current = button_read(&btn, 50);
-
-        if (current && !last) {
-            PORTB ^= (1 << PORTB5);
-        }
-
-        last = current;
-        _delay_ms(500);
-        PORTB ^= (1 << PORTB5);
+        _delay_ms(100);
     }
 }
